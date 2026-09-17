@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FBF5EF;
+  --color-cream-dark: #F3E9DF;
+  --color-card: #FFFFFF;
+  --color-ink: #3B302C;
+  --color-ink-soft: #7A6E68;
+  --color-pink: #E9A9B4;
+  --color-pink-dark: #DC8E9C;
+  --color-pink-soft: #F7DEE2;
+  --color-lilac: #C9B8E8;
+  --color-lilac-soft: #EAE1F7;
+  --color-sage: #A9BFAE;
+  --color-border: #EDE1D8;
+
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+  --color-cream: #221D1B;
+  --color-cream-dark: #2A2422;
+  --color-card: #2E2724;
+  --color-ink: #F3EAE5;
+  --color-ink-soft: #B8ACA6;
+  --color-pink: #E9A9B4;
+  --color-pink-dark: #DC8E9C;
+  --color-pink-soft: #4A3438;
+  --color-lilac: #C9B8E8;
+  --color-lilac-soft: #3A3350;
+  --color-sage: #A9BFAE;
+  --color-border: #3D3532;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  overscroll-behavior-y: contain;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.press {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.press:active {
+  transform: scale(0.96);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fadeInUp 0.35s ease both;
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.85); }
+  70% { opacity: 1; transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+.animate-pop-in {
+  animation: popIn 0.4s ease both;
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.animate-float {
+  animation: gentleFloat 3s ease-in-out infinite;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-pink-dark);
+  outline-offset: 2px;
+}
